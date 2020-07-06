@@ -1,0 +1,11 @@
+<div class="container">
+    <div *ngFor="let movieDetail of movie ">
+        <div class="card text-left">
+          <img class="card-img-top" [src]="movieDetail.hinhAnh" alt="">
+          <div class="card-body">
+            <h4 class="card-title">{{movieDetail.tenphim}}</h4>
+            <p class="card-text">{{movieDetail.moTa}}</p>
+          </div>
+        </div>
+    </div>
+</div>

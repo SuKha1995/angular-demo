@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="from-group">
+        <label   class="mr-2">Mã SP</label>
+        <input type="text" class="from-control" #maSP/>
+    </div>
+    <div class="from-group">
+        <label  for="" class="mr-2">Mã SP</label>
+        <input type="text" class="from-control" #tenSP/>
+    </div>
+    <div class="from-group">
+        <label  for="" class="mr-2">Mã SP</label>
+        <input type="text" class="from-control" #gia/>
+    </div>
+    <button (click)="themSanPham(maSP.value,tenSP.value,gia.value)" class="btn btn-success">Thêm sản phẩm</button>
+</div>
+
+
+<div class="table container">
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Mã SP</th>
+                <th>Tên SP</th>
+                <th>Gia</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let sp of dssp; let idx = index">
+                <td>{{idx + 1}}</td>
+                <td>{{sp.maSP}}</td>
+                <td>{{sp.tenSP}}</td>
+                <td>{{sp.gia}}</td>
+            </tr>
+        </tbody>
+        
+    </table>
+</div>

@@ -1,0 +1,105 @@
+<p>====ngIf=====</p>
+<div *ngIf="isShow">
+    <p>hello cybersoft</p>
+    <p>FE40</p>
+</div>
+
+<button (click)="toggle()" class="btn btn-success">
+    Show/Hied
+</button>
+
+<div *ngIf = "!isLogin; else templateLogout " >
+    <p>Bạn chưa đăng nhập</p>
+    <button (click)="dangNhap()">Đăng nhập</button>
+</div>
+  <!-- <div *ngIf = "isLogin">
+      <p>Xin chào</p>
+      <button (click) = "dangXuat()">Đăng xuất</button>
+  </div> -->
+
+  <ng-template #templateLogout>
+    <p>Xin chào</p>
+    <button (click) = "dangXuat()">Đăng xuất</button>
+  </ng-template>
+
+
+
+  <p>===ngSwitch===</p>
+  <div>
+    <select [(ngModel)] = "color">
+        <option value="red">Red</option>
+        <option value="blue">blue</option>
+        <option value="green">green</option>
+    </select>
+  </div>
+  <div [ngSwitch] = "color">
+      <div *ngSwitchCase="'red'" style="background-color: red;">
+        <p>Màu đỏ</p>
+      </div>
+      <div *ngSwitchCase="'blue'" style="background-color: blue;">
+        <p>Màu xanh</p>
+      </div>
+      <div *ngSwitchCase="'green'" style="background-color: green;">
+        <p>Màu lá</p>
+      </div>
+      <div *ngSwitchDefault style="background-color: greenyellow;">
+        <p>Màu cam</p>
+    </div>
+  </div>
+
+
+  <p>===ngFor===</p>
+
+
+  <!-- index, count là do angular cung cap -->
+  <!-- <p *ngFor = "let sv of dssv; let id = index; let total = count">
+     {{id + 1}} - {{sv.hoTen}} - {{sv.lop}}
+  </p> -->
+
+  <ng-container *ngIf="dssv">
+    <p *ngFor = "let sv of dssv; let id = index; let total = count">
+        {{id + 1}} - {{sv.hoTen}} - {{sv.lop}}
+     </p>
+  </ng-container>
+
+  <p>ngTemplateOutlet</p>
+
+  <ng-template #template>
+      <p>nơi đây chứa phần giao diện lặp lại nhiều lần</p>
+  </ng-template>
+  <ng-template #template2>
+    <p *ngFor = "let sv of dssv; let id = index; let total = count">
+        {{id + 1}} - {{sv.hoTen}} - {{sv.lop}}
+     </p>
+  </ng-template>
+
+  <ng-container *ngTemplateOutlet="template"></ng-container>
+  <ng-container *ngTemplateOutlet = "template2"></ng-container>
+
+
+  <app-button>
+      Submit
+  </app-button>
+  <app-button>
+   Cancle
+</app-button>
+
+<p>===ngClass===</p>
+
+<div>
+    <p *ngFor = "let sv of dssv; let id = index; let total = count;
+                let isFirst = first;
+                let isLast = last;
+    "
+    [ngClass]= "{'bg-primary': isFirst, 'bg-success': isLast}"
+    
+    >
+        {{id + 1}} - {{sv.hoTen}} - {{sv.lop}}
+     </p>
+</div>
+
+<p>===ngStyle===</p>
+
+<div [ngStyle] = "{'background-color':color}">
+    ng style 
+</div>

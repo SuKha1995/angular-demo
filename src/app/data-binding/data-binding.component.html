@@ -1,0 +1,13 @@
+<p>{{message}}</p>
+<!-- <input type="text"  value={{message}}/> -->
+<input type="text"  [value]="message" #name />
+<br/>
+<button (click) = "changeData(name.value)">click</button>
+
+<input type="text" [value]="fullName" (change) = "changeInputData(refFullName.value)" #refFullName />
+<br/>
+
+<p>{{email}}</p>
+<input type="text" [(ngModel)]= "email" />
+
+
